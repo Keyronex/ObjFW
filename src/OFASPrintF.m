@@ -21,6 +21,9 @@
 #include <stdarg.h>
 #include <stdbool.h>
 
+/* Keyronex: broken in mlibc */
+#undef HAVE_USELOCALE
+
 #ifdef HAVE_WCHAR_H
 # include <wchar.h>
 #endif

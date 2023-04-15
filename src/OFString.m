@@ -81,6 +81,11 @@ static struct {
 	Class isa;
 } placeholder;
 
+/* Keyronex: broken in mlibc */
+#undef HAVE_USELOCALE
+#undef HAVE_STRTOF_L
+#undef HAVE_STRTOD_L
+
 #if defined(HAVE_STRTOF_L) || defined(HAVE_STRTOD_L) || defined(HAVE_USELOCALE)
 static locale_t cLocale;
 #endif
