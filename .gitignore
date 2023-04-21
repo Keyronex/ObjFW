@@ -60,3 +60,4 @@ utils/ofatalkcfg/ofatalkcfg
 utils/ofdns/ofdns
 utils/ofhash/ofhash
 utils/ofhttp/ofhttp
+*.xbstrap
