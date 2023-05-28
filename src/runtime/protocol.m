@@ -52,6 +52,25 @@ protocol_conformsToProtocol(Protocol *protocol1, Protocol *protocol2)
 	return false;
 }
 
+const char *
+_protocol_getMethodTypeEncoding(Protocol *p, SEL sel, BOOL isRequiredMethod,
+	BOOL isInstanceMethod)
+{
+	struct objc_method_description_list *methodList;
+
+	if (isInstanceMethod)
+		methodList = p->instanceMethods;
+	else
+		methodList = p->classMethods;
+
+	for (size_t i = 0; i < methodList->count; i++)
+			if (strcmp(methodList->list[i].name,
+			    sel_getName(sel)) == 0)
+				return methodList->list[i].typeEncoding;
+
+	return NULL;
+}
+
 bool
 class_conformsToProtocol(Class class, Protocol *protocol)
 {
