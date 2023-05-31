@@ -63,7 +63,7 @@ _protocol_getMethodTypeEncoding(Protocol *p, SEL sel, BOOL isRequiredMethod,
 	else
 		methodList = p->classMethods;
 
-	for (size_t i = 0; i < methodList->count; i++)
+	for (int i = 0; i < methodList->count; i++)
 			if (strcmp(methodList->list[i].name,
 			    sel_getName(sel)) == 0)
 				return methodList->list[i].typeEncoding;
